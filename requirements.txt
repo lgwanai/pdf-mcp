@@ -1,0 +1,7 @@
+fastmcp>=0.9.0
+markitdown>=0.0.1a2
+PyMuPDF>=1.23.0
+Pillow>=10.0.0
+typing-extensions>=4.0.0
+python-dotenv
+cos-python-sdk-v5
