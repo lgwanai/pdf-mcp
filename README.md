@@ -62,25 +62,58 @@ PDF转图片功能需要腾讯云COS服务支持，请按以下步骤配置：
 
 ### 运行服务
 
-**标准模式 (stdio):**
-```bash
-# 使用启动脚本
-./start_server.sh
+**使用管理脚本（推荐）:**
 
-# 或直接运行
-python3 src/pdf_mcp_server.py
+**Linux/macOS:**
+```bash
+# 启动服务器（SSE模式）
+./manage_server.sh start
+
+# 查看服务状态
+./manage_server.sh status
+
+# 查看日志
+./manage_server.sh logs
+
+# 停止服务器
+./manage_server.sh stop
+
+# 重启服务器
+./manage_server.sh restart
 ```
 
-**SSE模式 (Server-Sent Events):**
-```bash
-# 使用启动脚本
-./start_server_sse.sh
+**Windows:**
+```cmd
+# 启动服务器（SSE模式）
+manage_server.bat start
 
-# 或直接运行
+# 查看服务状态
+manage_server.bat status
+
+# 查看日志
+manage_server.bat logs
+
+# 停止服务器
+manage_server.bat stop
+
+# 重启服务器
+manage_server.bat restart
+```
+
+**直接运行:**
+```bash
+# 标准模式 (stdio)
+python3 src/pdf_mcp_server.py
+
+# SSE模式 (Server-Sent Events)
 python3 src/pdf_mcp_server.py --sse
 ```
 
-SSE模式将在HTTP服务器上运行，端口由环境变量 `MCP_PORT` 配置（默认8000），支持通过HTTP接口访问MCP功能。
+**说明:**
+- 管理脚本默认以SSE模式启动服务器，支持HTTP接口访问
+- SSE模式运行在HTTP服务器上，端口由环境变量 `MCP_PORT` 配置（默认8000）
+- 管理脚本提供完整的服务生命周期管理，包括进程监控、日志管理等功能
+- 服务器日志保存在 `server.log` 文件中
 
 ## MCP工具
 
